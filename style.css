@@ -44,12 +44,11 @@ a { text-decoration: none; color: inherit; }
     display: flex;
     gap: 25px;
     align-items: center;
-    position: relative;
 }
 
 /* Highlight bar */
 .nav-highlight {
-    position: absolute;
+    position: fixed;
     height: 40px;
     width: 0;
     background: var(--accent);
@@ -61,7 +60,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .navbar a {
-    position: relative;
+    position: fixed;
     z-index: 1;
     padding: 6px 18px;
     transition: color 0.3s;
@@ -147,7 +146,6 @@ a { text-decoration: none; color: inherit; }
     display: flex;
     gap: 25px;
     align-items: center;
-    position: relative;
 }
 
 .nav-highlight {

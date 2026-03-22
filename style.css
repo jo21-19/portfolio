@@ -1,5 +1,5 @@
 /* ===================================================
-    ROOT VARIABLES & RESET
+    1. ROOT VARIABLES & RESET
 =================================================== */
 :root {
     --bg-color: #0d0208;
@@ -25,8 +25,13 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* ===================================================
-    GLOBAL SECTIONS (ADDED TRANSITION HERE)
+    2. GLOBAL SECTIONS
 =================================================== */
 section {
     padding: 100px 10%;
@@ -39,20 +44,20 @@ section {
     transition: background-color 0.8s ease-in-out;
 }
 
-/* Specific Backgrounds for Each Page */
-#home { background-color: #0d0208; }      /* Deep Black */
-#about { background-color: #8f3a05; }     /* Midnight Blue/Gray */
-#skills { background-color: #120b06; }    /* Dark Chocolate/Black */
-#projects { background-color: #8f3a05; }  /* Dark Slate */
-#contact { background-color: #0d0208; }   /* Back to Deep Black */
+#home { background-color: #0d0208; }
+#about { background-color: #8f3a05; }
+#skills { background-color: #120b06; }
+#projects { background-color: #8f3a05; }
+#contact { background-color: #0d0208; }
 
-a {
-    text-decoration: none;
-    color: inherit;
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 /* ===================================================
-    NAVBAR
+    3. NAVBAR
 =================================================== */
 .navbar {
     position: fixed;
@@ -80,9 +85,7 @@ a {
     transform: translateY(-50%);
     border-radius: 30px;
     background: var(--accent);
-    transition:
-        left .4s cubic-bezier(.25,.8,.25,1),
-        width .4s cubic-bezier(.25,.8,.25,1);
+    transition: left .4s cubic-bezier(.25,.8,.25,1), width .4s cubic-bezier(.25,.8,.25,1);
     z-index: 0;
     pointer-events: none;
 }
@@ -94,17 +97,11 @@ a {
     transition: color 0.3s ease;
 }
 
-.navbar a.active {
-    color: #fff;
-    font-weight: 600;
-}
-
-.navbar a:hover {
-    color: #fff;
-}
+.navbar a.active { color: #fff; font-weight: 600; }
+.navbar a:hover { color: #fff; }
 
 /* ===================================================
-    HERO SECTION
+    4. HERO SECTION
 =================================================== */
 .hero {
     display: flex;
@@ -115,54 +112,12 @@ a {
     padding: 80px 10%;
 }
 
-.hero-text {
-    flex: 1;
-    color: var(--text-primary);
-}
+.hero-text { flex: 1; color: var(--text-primary); }
+.hero-text h1 { font-size: 4rem; margin: 10px 0; }
+.hero-text h1 span { color: var(--accent); }
+.hero-text p { color: var(--text-secondary); margin-bottom: 30px; max-width: 500px; }
 
-.hero-text h1 {
-    font-size: 4rem;
-    margin: 10px 0;
-}
-
-.hero-text h1 span {
-    color: var(--accent);
-}
-
-.hero-text p {
-    color: var(--text-secondary);
-    margin-bottom: 30px;
-    max-width: 500px;
-}
-
-.btns {
-    display: flex;
-    gap: 15px;
-}
-
-.main-btn {
-    background: var(--accent);
-    padding: 12px 28px;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.outline-btn {
-    border: 1px solid var(--border);
-    padding: 12px 28px;
-    border-radius: 8px;
-}
-
-.outline-btn:hover {
-    border-color: var(--accent);
-}
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
-
+.hero-image { flex: 1; display: flex; justify-content: center; }
 .hero-image img {
     width: 380px;
     height: 480px;
@@ -172,203 +127,17 @@ a {
     box-shadow: 0 0 40px rgba(231, 98, 9, 0.25);
     transition: transform 0.3s ease;
 }
-
-.hero-image img:hover {
-    transform: scale(1.05);
-}
+.hero-image img:hover { transform: scale(1.05); }
 
 /* ===================================================
-    PROJECTS
+    5. BUTTONS & SOCIALS
 =================================================== */
-.section-title {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    text-align: center;
-}
+.btns { display: flex; gap: 15px; }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
+.main-btn { background: var(--accent); padding: 12px 28px; border-radius: 8px; font-weight: bold; }
+.outline-btn { border: 1px solid var(--border); padding: 12px 28px; border-radius: 8px; }
+.outline-btn:hover { border-color: var(--accent); }
 
-.project-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    padding: 25px;
-    border-radius: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 25px rgba(11, 10, 9, 0.25);
-}
-
-.p-img {
-    height: 180px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-.p-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
-/* ===================================================
-    SKILLS
-=================================================== */
-#skills {
-    align-items: center;
-}
-
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    margin-top: 30px;
-    max-width: 1200px;
-}
-
-.skill {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 25px;
-    width: 300px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skill:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 25px rgba(231, 98, 9, 0.25);
-    border-color: var(--accent);
-}
-
-.skill h3 {
-    color: var(--accent);
-    margin-bottom: 20px;
-    font-size: 1.4rem;
-}
-
-.skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-}
-
-.skill-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.skill-item i {
-    color: var(--accent);
-    font-size: 1.1rem;
-}
-
-.skill-item:hover {
-    background: rgba(231, 98, 9, 0.1);
-    border-color: var(--accent);
-    transform: scale(1.05);
-}
-
-/* ===================================================
-    CONTACT
-=================================================== */
-.contact-container {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.contact-info {
-    margin: 40px 0;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    color: var(--text-secondary);
-}
-
-/* ===================================================
-    RESPONSIVE
-=================================================== */
-@media (max-width: 900px) {
-    .hero-image img {
-        width: 320px;
-        height: 400px;
-    }
-    .contact-info {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .skills-container {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-image img {
-        width: 260px;
-        height: 320px;
-        margin-top: 30px;
-    }
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
-    .hero-text p {
-        font-size: 1rem;
-    }
-}
-
-/* ===================================================
-    ABOUT SECTION IMAGE FIX
-=================================================== */
-#about .about-container{
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center;
-    justify-content: space-between;
-    gap: 60px;
-}
-
-#about .about-text{ flex: 1; }
-#about .about-image{ flex: 1; display: flex; justify-content: center; }
-
-#about .about-image img{
-    width: 280px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid var(--accent);
-    box-shadow: 0 0 25px rgba(231, 98, 9, 0.35), 0 0 60px rgba(231, 98, 9, 0.15);
-    transition: transform 0.4s ease;
-}
-
-#about .about-image img:hover{ transform: scale(1.05); }
-
-/* ===================================================
-    HERO BUTTONS
-=================================================== */
 .hero-buttons a {
     padding: 12px 30px;
     border-radius: 8px;
@@ -378,6 +147,9 @@ a {
     transition: all 0.3s ease;
     position: relative;
     z-index: 0;
+    background-color: #ff7f00;
+    color: #fff;
+    border: 2px solid #ff7f00;
 }
 
 .hero-buttons a::before {
@@ -393,12 +165,6 @@ a {
     filter: blur(6px);
     opacity: 0.8;
     transition: opacity 0.3s ease;
-}
-
-.hero-buttons a {
-    background-color: #ff7f00;
-    color: #fff;
-    border: 2px solid #ff7f00;
 }
 
 .hero-buttons a:hover::before { opacity: 1; }
@@ -417,12 +183,32 @@ a {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-.social-btn:hover {
-    transform: translateY(-3px);
-    background-color: #ffa500;
+.social-btn:hover { transform: translateY(-3px); background-color: #ffa500; }
+.social-btn i { font-size: 18px; }
+
+/* ===================================================
+    6. ABOUT SECTION
+=================================================== */
+#about .about-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
 }
 
-.social-btn i { font-size: 18px; }
+#about .about-text { flex: 1; }
+#about .about-image { flex: 1; display: flex; justify-content: center; }
+#about .about-image img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--accent);
+    box-shadow: 0 0 25px rgba(231, 98, 9, 0.35), 0 0 60px rgba(231, 98, 9, 0.15);
+    transition: transform 0.4s ease;
+}
+#about .about-image img:hover { transform: scale(1.05); }
 
 .orange-text {
     color: var(--accent);
@@ -432,34 +218,70 @@ a {
     animation: blink 0.7s infinite;
 }
 
-@keyframes blink {
-    0%, 100% { border-color: transparent; }
-    50% { border-color: var(--accent); }
+@keyframes blink { 0%, 100% { border-color: transparent; } 50% { border-color: var(--accent); } }
+
+/* ===================================================
+    7. PROJECTS & SKILLS
+=================================================== */
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+.project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover { transform: translateY(-8px); box-shadow: 0 0 25px rgba(11, 10, 9, 0.25); }
+
+.p-img { height: 180px; border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+.p-img img { width: 100%; height: 100%; object-fit: cover; }
+
+#skills { align-items: center; }
+.skills-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 30px; max-width: 1200px; }
+.skill {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 25px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skill:hover { transform: translateY(-8px); box-shadow: 0 0 25px rgba(231, 98, 9, 0.25); border-color: var(--accent); }
+.skill h3 { color: var(--accent); margin-bottom: 20px; font-size: 1.4rem; }
+.skill-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+.skill-item {
+    display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px; border-radius: 8px; font-size: 0.9rem; border: 1px solid transparent; transition: all 0.3s ease;
+}
+.skill-item i { color: var(--accent); font-size: 1.1rem; }
+.skill-item:hover { background: rgba(231, 98, 9, 0.1); border-color: var(--accent); transform: scale(1.05); }
+
+/* ===================================================
+    8. CONTACT & RESPONSIVE
+=================================================== */
+.contact-container { text-align: center; max-width: 700px; margin: 0 auto; }
+.contact-info { margin: 40px 0; display: flex; justify-content: center; gap: 30px; color: var(--text-secondary); }
+
+@media (max-width: 900px) {
+    .hero-image img { width: 320px; height: 400px; }
+    .contact-info { flex-direction: column; gap: 10px; }
+    .skills-container { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 480px) {
+    .hero { flex-direction: column; text-align: center; }
+    .hero-image img { width: 260px; height: 320px; margin-top: 30px; }
+    .hero-text h1 { font-size: 2.5rem; }
+    .hero-text p { font-size: 1rem; }
 }
 
 /* ===================================================
-    NEW PRINT LOGIC (ONLY HIDES ELEMENTS)
+    9. PRINT LOGIC
 =================================================== */
 @media print {
-    /* Hides the Navbar and all action buttons so the PDF looks clean */
-    .navbar, 
-    .nav-highlight, 
-    .btns, 
-    .hero-buttons, 
-    .social-btn,
-    .main-btn,
-    .outline-btn {
-        display: none !important;
-    }
-
-    /* Force browser to keep your background colors */
-    * {
-        -webkit-print-color-adjust: exact !important;
-        print-color-adjust: exact !important;
-    }
-
-    /* Keep the dark theme active on the PDF */
-    body {
-        background-color: var(--bg-color) !important;
-    }
+    .navbar, .nav-highlight, .btns, .hero-buttons, .social-btn, .main-btn, .outline-btn { display: none !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { background-color: var(--bg-color) !important; }
 }

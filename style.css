@@ -1,13 +1,13 @@
 /* ===================================================
-   ROOT VARIABLES & RESET
+    ROOT VARIABLES & RESET
 =================================================== */
 :root {
     --bg-color: #0d0208;
-    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-bg: rgba(252, 126, 23, 0.03);
     --accent: #e76209;
     --text-primary: #ffffff;
     --text-secondary: #a0a0a0;
-    --border: rgba(231, 98, 9, 0.25);
+    --border: rgba(244, 197, 10, 0.947);
 }
 
 * {
@@ -26,7 +26,7 @@ body {
 }
 
 /* ===================================================
-   GLOBAL SECTIONS
+    GLOBAL SECTIONS (ADDED TRANSITION HERE)
 =================================================== */
 section {
     padding: 100px 10%;
@@ -36,7 +36,15 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: background-color 0.8s ease-in-out;
 }
+
+/* Specific Backgrounds for Each Page */
+#home { background-color: #0d0208; }      /* Deep Black */
+#about { background-color: #8f3a05; }     /* Midnight Blue/Gray */
+#skills { background-color: #120b06; }    /* Dark Chocolate/Black */
+#projects { background-color: #8f3a05; }  /* Dark Slate */
+#contact { background-color: #0d0208; }   /* Back to Deep Black */
 
 a {
     text-decoration: none;
@@ -44,7 +52,7 @@ a {
 }
 
 /* ===================================================
-   NAVBAR
+    NAVBAR
 =================================================== */
 .navbar {
     position: fixed;
@@ -63,7 +71,6 @@ a {
     overflow: hidden;
 }
 
-/* Sliding Highlight */
 .nav-highlight {
     position: absolute;
     top: 50%;
@@ -80,7 +87,6 @@ a {
     pointer-events: none;
 }
 
-/* Nav Links */
 .navbar a {
     position: relative;
     z-index: 1;
@@ -98,13 +104,13 @@ a {
 }
 
 /* ===================================================
-   HERO SECTION
+    HERO SECTION
 =================================================== */
 .hero {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between; /* side by side */
+    justify-content: space-between;
     gap: 60px;
     padding: 80px 10%;
 }
@@ -151,7 +157,6 @@ a {
     border-color: var(--accent);
 }
 
-/* Hero Image */
 .hero-image {
     flex: 1;
     display: flex;
@@ -173,7 +178,7 @@ a {
 }
 
 /* ===================================================
-   PROJECTS
+    PROJECTS
 =================================================== */
 .section-title {
     font-size: 2.5rem;
@@ -197,7 +202,7 @@ a {
 
 .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 0 25px rgba(231, 98, 9, 0.25);
+    box-shadow: 0 0 25px rgba(11, 10, 9, 0.25);
 }
 
 .p-img {
@@ -213,22 +218,9 @@ a {
     object-fit: cover;
 }
 
-.p-tags {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.p-tags span {
-    font-size: 11px;
-    background: rgba(255,255,255,0.05);
-    padding: 4px 10px;
-    border-radius: 5px;
-    color: var(--accent);
-}
 
 /* ===================================================
-   SKILLS
+    SKILLS
 =================================================== */
 #skills {
     align-items: center;
@@ -248,7 +240,7 @@ a {
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 25px;
-    width: 250px;
+    width: 300px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -256,19 +248,47 @@ a {
 .skill:hover {
     transform: translateY(-8px);
     box-shadow: 0 0 25px rgba(231, 98, 9, 0.25);
+    border-color: var(--accent);
 }
 
 .skill h3 {
     color: var(--accent);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
 }
 
-.skill p {
-    color: var(--text-secondary);
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.skill-item i {
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.skill-item:hover {
+    background: rgba(231, 98, 9, 0.1);
+    border-color: var(--accent);
+    transform: scale(1.05);
 }
 
 /* ===================================================
-   CONTACT
+    CONTACT
 =================================================== */
 .contact-container {
     text-align: center;
@@ -285,45 +305,161 @@ a {
 }
 
 /* ===================================================
-   RESPONSIVE
+    RESPONSIVE
 =================================================== */
-
-/* Keep hero side by side on tablets and desktops */
 @media (max-width: 900px) {
     .hero-image img {
         width: 320px;
         height: 400px;
     }
-
     .contact-info {
         flex-direction: column;
         gap: 10px;
     }
-
     .skills-container {
         flex-direction: column;
         align-items: center;
     }
 }
 
-/* Stack hero only on very small screens */
 @media (max-width: 480px) {
     .hero {
         flex-direction: column;
         text-align: center;
     }
-
     .hero-image img {
         width: 260px;
         height: 320px;
         margin-top: 30px;
     }
-
     .hero-text h1 {
         font-size: 2.5rem;
     }
-
     .hero-text p {
         font-size: 1rem;
+    }
+}
+
+/* ===================================================
+    ABOUT SECTION IMAGE FIX
+=================================================== */
+#about .about-container{
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+#about .about-text{ flex: 1; }
+#about .about-image{ flex: 1; display: flex; justify-content: center; }
+
+#about .about-image img{
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--accent);
+    box-shadow: 0 0 25px rgba(231, 98, 9, 0.35), 0 0 60px rgba(231, 98, 9, 0.15);
+    transition: transform 0.4s ease;
+}
+
+#about .about-image img:hover{ transform: scale(1.05); }
+
+/* ===================================================
+    HERO BUTTONS
+=================================================== */
+.hero-buttons a {
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 0;
+}
+
+.hero-buttons a::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #ff7f00, #ffa500);
+    z-index: -1;
+    filter: blur(6px);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.hero-buttons a {
+    background-color: #ff7f00;
+    color: #fff;
+    border: 2px solid #ff7f00;
+}
+
+.hero-buttons a:hover::before { opacity: 1; }
+.hero-buttons a:hover { background-color: #ffa500; }
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background-color: #ff7f00;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    background-color: #ffa500;
+}
+
+.social-btn i { font-size: 18px; }
+
+.orange-text {
+    color: var(--accent);
+    font-weight: bold;
+    border-right: 3px solid var(--accent);
+    padding-right: 5px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { border-color: transparent; }
+    50% { border-color: var(--accent); }
+}
+
+/* ===================================================
+    NEW PRINT LOGIC (ONLY HIDES ELEMENTS)
+=================================================== */
+@media print {
+    /* Hides the Navbar and all action buttons so the PDF looks clean */
+    .navbar, 
+    .nav-highlight, 
+    .btns, 
+    .hero-buttons, 
+    .social-btn,
+    .main-btn,
+    .outline-btn {
+        display: none !important;
+    }
+
+    /* Force browser to keep your background colors */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Keep the dark theme active on the PDF */
+    body {
+        background-color: var(--bg-color) !important;
     }
 }

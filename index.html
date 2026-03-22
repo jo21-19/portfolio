@@ -5,8 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yonatan Daniel Portfolio</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+<script>
+    const name = "Yonatan Daniel";
+    const speed = 150; // Speed in milliseconds (lower is faster)
+    let i = 0;
+
+    function typeWriter() {
+        if (i < name.length) {
+            document.getElementById("typewriter-name").innerHTML += name.charAt(i);
+            i++;
+            setTimeout(typeWriter, 200);
+        } else {
+            // Optional: Remove the cursor once typing is done
+            document.getElementById("typewriter-name").style.borderRight = "none";
+        }
+    }
+
+    // Start the effect when the page loads
+    window.onload = typeWriter;
+</script>
 <body>
+    
 
 <nav class="navbar">
     <span class="nav-highlight"></span>
@@ -20,31 +41,51 @@
 <!-- HERO SECTION -->
 <section id="home" class="hero">
     <div class="hero-text">
-        <h1>Hi, I'm <span>Yonatan Daniel</span></h1>
+        <h1>
+  Hi, I'm <span id="typewriter-name" class="orange-text"></span>
+</h1>
         <p>I build modern, reliable, and fast digital experiences with a focus on clean UI and solid engineering.</p>
+        
+        <!-- NEW BUTTONS -->
+        <div class="hero-buttons">
+            <a href="#contact" class="btn-primary">Contact Me</a>
+           <a href="javascript:window.print()" class="btn-outline">
+                    <i class="fas fa-file-pdf"></i> Download CV
+                </a>
+        </div>
     </div>
+    
     <div class="hero-image">
-        <img src="images/your-photo.png.jpg" alt="Profile Image">
+        <img src="images/your-photo.png.png" alt="Profile Image">
     </div>
 </section>
 
 <!-- ABOUT SECTION -->
 <section id="about">
     <h2 class="section-title">About Me</h2>
+
     <div class="about-container">
+
+        <!-- LEFT SIDE (IMAGE) -->
+        <div class="about-image">
+            <img src="images/your-photo.png.png" alt="About Image">
+        </div>
+
+        <!-- RIGHT SIDE (TEXT) -->
         <div class="about-text">
             <p>
                 Hi! I’m <strong>Yonatan Daniel</strong>, a passionate web developer specializing in creating modern, reliable, and fast digital experiences. 
                 I enjoy turning ideas into functional and beautiful web applications. With experience in both frontend and backend technologies, I strive to deliver clean, efficient, and maintainable code.
             </p>
+
             <p>
                 My goal is to create products that not only look great but also perform seamlessly, providing users with a smooth and engaging experience. 
                 I am constantly learning new tools, frameworks, and techniques to stay at the forefront of web development.
             </p>
         </div>
-        <div class="about-image">
-           
+
     </div>
+
 </section>
 
 
@@ -54,25 +95,50 @@
 <section id="skills">
     <h2 class="section-title">My Skills</h2>
     <div class="skills-container">
+        
         <div class="skill">
+            <i class="fa-solid fa-code"></i>
             <h3>Frontend</h3>
-            <p>HTML, CSS, JavaScript, React, Next.js</p>
+            <div class="skill-list">
+                <span><i class="fab fa-html5"></i> HTML</span>
+                <span><i class="fab fa-css3-alt"></i> CSS</span>
+                <span><i class="fab fa-js"></i> JavaScript</span>
+                <span><i class="fab fa-react"></i> React</span>
+            </div>
         </div>
+
         <div class="skill">
+            <i class="fa-solid fa-server"></i>
             <h3>Backend</h3>
-            <p>Node.js, Express, Java, SQL</p>
+            <div class="skill-list">
+                <span><i class="fab fa-java"></i> Java</span>
+                <span><i class="fas fa-database"></i> SQL</span>
+                <span><i class="fab fa-python"></i> Python</span>
+            </div>
         </div>
-        <dev class="skill">
-            <h3>Graphics Design</h3>
-            <p>Adobe illustrator, Adobe photoshop, Adobe InDesignS</p>
-        </dev>
+
         <div class="skill">
-            <h3>Tools & Others</h3>
-            <p>Git, GitHub, VS Code, Figma</p>
+            <i class="fa-solid fa-palette"></i>
+            <h3>Graphics Design</h3>
+            <div class="skill-list">
+                <span><i class="fas fa-bezier-curve"></i> Illustrator</span>
+                <span><i class="fas fa-image"></i> Photoshop</span>
+                <span><i class="fas fa-book-open"></i> InDesign</span>
+            </div>
         </div>
+
+        <div class="skill">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <h3>Tools & Others</h3>
+            <div class="skill-list">
+                <span><i class="fab fa-git-alt"></i> Git</span>
+                <span><i class="fab fa-github"></i> GitHub</span>
+                <span><i class="fab fa-figma"></i> Figma</span>
+            </div>
+        </div>
+        
     </div>
 </section>
-
 <!--Project  SECTION -->
 <section id="projects">
     <h2 class="section-title">Featured Work</h2>
@@ -84,7 +150,7 @@
             </div>
             <h3>Soundify</h3>
             <p>Music recognition and streaming web application.</p>
-            <div class="p-tags"><span>Next.js</span><span>SQL</span></div>
+            
         </div>
 
         <div class="project-card">
@@ -93,7 +159,7 @@
             </div>
             <h3>Clinic Website</h3>
             <p>Clinic management and healthcare website.</p>
-            <div class="p-tags"><span>Java</span><span>SQL</span></div>
+            
         </div>
 
     </div>
@@ -105,13 +171,20 @@
         <h2 class="section-title">Get In Touch</h2>
         <p>Let's collaborate! I am always open to discussing exciting projects and new opportunities.</p>
         <div class="contact-info">
-            <span>📧 jo55358595@gmail.com</span>
-            <span>📍Ethiopia, Wolkite </span>
-        </div>
-        <div class="btns" style="justify-content:center;">
-            <a href="https://github.com" class="outline-btn">GitHub</a>
-            <a href="https://linkedin.com" class="outline-btn">LinkedIn</a>
-        </div>
+    <div class="contact-item">
+        <i class="fas fa-envelope"></i> jo55958535@gmail.com
+    </div>
+    <div class="contact-item">
+        <i class="fas fa-phone"></i> +251 985350395
+    </div>
+</div>
+        <div class="btns" style="justify-content:center; gap: 15px;">
+    <a href="https://github.com" class="social-btn"><i class="fab fa-github"></i> GitHub</a>
+    <a href="https://linkedin.com" class="social-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    
+     <a href="https://t.me/Naaaalk" target="_blank" class="social-btn">
+        <i class="fab fa-telegram"></i> Telegram
+    </a>
     </div>
 </section>
 
